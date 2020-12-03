@@ -1,20 +1,16 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { getGifs } from '../helpers/getGifs';
+import React, { Fragment } from 'react';
 import { GifGridItem } from './GifGridItem';
 import PropTypes from 'prop-types';
+import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {
-    // creando el state de imagenes
-    const [images, setImages] = useState([]);
-
-    // useEffect cada que se agregue una nueva categoria
-    useEffect(() => {
-        getGifs(category).then( setImages );
-    }, [ category ]);
+    
+    const { data:images, loading } = useFetchGifs(category);
 
     return (
         <Fragment>
-            <h3>{category}</h3>
+            <h3 className='animate__animated animate__fadeInRight'>{category}</h3>
+            {loading && <p>Loading</p>}
             <div className='card-grid'>
                 {images.map((img) => (
                     <GifGridItem key={img.id} {...img} />
