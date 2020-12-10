@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import { GifGridItem } from './GifGridItem';
 import PropTypes from 'prop-types';
+
+import { GifGridItem } from './GifGridItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 
 export const GifGrid = ({ category }) => {

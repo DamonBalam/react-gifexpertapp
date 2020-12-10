@@ -3,13 +3,8 @@ import AddCategory from './components/AddCategory';
 import { GifGrid } from './components/GifGrid';
 // import PropTypes from 'prop-types';
 
-const GifExpertApp = (props) => {
-    const [categories, setCategories] = useState(['One Piece']);
-
-    // const handleAdd = () => {
-    //     // setCategories([...categories, 'HunterxHunter']);
-    //     setCategories((cats) => [...cats, 'HunterXHunter']);
-    // };
+const GifExpertApp = ({ defaultCategories = [] }) => {
+    const [categories, setCategories] = useState( defaultCategories );
 
     return (
         <Fragment>
